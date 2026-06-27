@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:  hsl(243, 96%, 9%);
+}
+.main-title{
+    font-size: 50px;
+    font-weight: 700;
+}
+.weather-card{
+    background:linear-gradient( hsl(233, 67%, 56%), hsl(248, 70%, 36%));
+    border-radius: 25px;
+    padding: 40px;
+    margin: 40px;
+    height: 40vh;
+    align-items: center; 
+}
+.weather-card h1{
+    font-size: 5rem;
+}
+.info-box{
+    background-color: hsl(243, 27%, 20%);
+    border-radius: 15px;
+    padding: 15px;
+    margin-left: 20px;
+    margin-bottom: 60px;  
+}
+.info-box h2{
+    padding-top: 20px;
+    margin-bottom: -4px;
+}
+.daily{
+   margin-left: 30px; 
+   margin-bottom: 30px;
+}
+.forecast-box{
+  background-color: hsl(243, 27%, 20%); 
+  border-radius: 15px;
+  padding: 1px;
+  margin-left: 15px; 
+}
+.forecast-box h5{
+    font-size: 13px;
+    text-align: center;
+    padding-top: 12px;
+}
+.forecast-box i{
+    text-align: center;
+    display: block; 
+    padding: 15px 0px 15px 0px; 
+}
+.forecast-box P{
+    justify-content: center;
+}
+.hourly-card{
+    background-color: hsl(243, 27%, 20%);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 41px;
+}
+.day-select{
+    background: hsl(243, 23%, 30%);
+    color: white;
+    border: none;
+    width: 120px;
+}
+option{
+    background:hsl(243, 23%, 30%);
+    color: white;
+}
+.cast-item{
+    background: hsl(243, 23%, 30%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}

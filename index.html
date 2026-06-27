@@ -7,6 +7,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Weather app</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <link rel="stylesheet" href="weather.css">
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -15,30 +18,309 @@
   </style>
 </head>
 <body>
+  <section>
+    <div class="container py-4">
 
-  Units
+      <div class="d-flex justify-content-between align-items-center justify-content-between mb-5">
 
-  Switch to Imperial/Metric
+        <div class="d-flex align-items-center">
+          <i class="bi bi-sun text-danger fs-3 me-2"></i>
+          <h4 class="text-white mb-1">Weather Now</h4>
+        </div>
 
-  Temperature
+        <div class="dropdown"> 
+          <button class="btn btn-secondary dropdown-toggle text-white"
+          data-bs-toggle="dropdown"><i class="bi bi-gear me-2"></i> Units</button>
 
-  Celsius (°C)
-  Fahrenheit (°F)
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#">Switch to Imperial/Metric</a></li>
+            <li><a class="dropdown-item" href="#">Temperature</a></li>
+            <li><a class="dropdown-item" href="#">Celsius (°C) </a></li>
+             <li><a class="dropdown-item" href="#">Fahrenheit (°F) </a></li>
+             <li><a class="dropdown-item" href="#">Wind Speed</a></li>
+             <li><hr class="dropdown-divider"></li>
+             <li><a class="dropdown-item" href="#">km/h</a></li>
+             <li><a class="dropdown-item" href="#">mph</a></li>
+             <li><a class="dropdown-item" href="#">Precipitation</a></li>
+             <li><a class="dropdown-item" href="#">Millimeters (mm)</a></li>
+             <li><a class="dropdown-item" href="#">Inches (in)</a></li>
+          </ul>
+        </div>
 
-  Wind Speed
 
-  km/h
-  mph
 
-  Precipitation
+      </div>
+    </div>
+  </section>
 
-  Millimeters (mm)
-  Inches (in)
+  <section>
+    <!-- Heading -->
 
-  How's the sky looking today?
+    <div class="text-center mb-5">
+      <h1 class="main-title text-white">How's the sky looking today?</h1>
+    </div>
+  </section>
 
-  Search for a city, e.g., New York
-  Search
+  <!-- search -->
+
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-4">
+       <div class="input-group">
+        <span class="input-group-text">
+          <i class="bi bi-search"></i>
+        </span>
+         <input  type="text" class="form-control search-input" placeholder="search for a place">
+       </div>
+      </div>
+
+      <div class="col-lg-1">
+        <button class="btn btn-primary w-100">
+          Search
+        </button>
+      </div>
+    </div>
+
+    <!-- main section -->
+    
+    <div class="container text-white mx-5">
+      <div class="row">
+
+      <div class="col-lg-9">
+         
+             <div class="d-flex justify-content-between weather-card">
+
+          <div>
+            <h2>Berlin, Germany</h2>
+            <p>Tueday, Aug 5, 2026</p>
+          </div>
+
+           <div class="">
+            <span class="small-sun sun-1">
+            <i class="bi bi-sun-fill"></i>
+          </span>
+
+           <span class="small-sun sun-1">
+            <i class="bi bi-sun-fill"></i>
+          </span>
+           </div>
+
+          <div class="temp-section">
+            <i class="bi bi-sun-fill text-warning fs-1"></i>
+          </div>
+          <div>
+            <h1>68°</h1>
+          </div>
+        </div>
+
+         <!-- stats -->
+
+    <div class="container row g-0">
+      <div class="col-md-3">
+        <div class="info-box">
+          <small>Feels Like</small>
+          <h2>64°</h2>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="info-box">
+          <small>Humidity</small>
+          <h2>46%</h2>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="info-box">
+          <small>Wind</small>
+          <h2>9 mph</h2>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="info-box">
+          <small>precipitation</small>
+          <h2>O in</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Forecast -->
+
+    <h4 class="daily">Daily Forecast</h4>
+
+    <div class="row g-0">
+
+      <div class="col">
+        <div class="forecast-box">
+          <h5>Tue</h5>
+          <i class="bi bi-cloud-rain-fill"></i>
+          <div class="d-flex justify-content-center gap-4">
+            <p>68°</p>
+            <p>57°</p>
+          </div>
+        </div>
+      </div>
+      
+         <div class="col">
+        <div class="forecast-box">
+          <h5>Wed</h5>
+          <i class="bi bi-cloud-drizzle-fill"></i>
+           <div class="d-flex justify-content-center gap-4">
+            <p>70°</p>
+            <p>59°</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="col">
+        <div class="forecast-box">
+          <h5>Thur</h5>
+          <i class="bi bi-sun-fill"></i>
+           <div class="d-flex justify-content-center gap-4">
+            <p>75°</p>
+            <p>57°</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="col">
+        <div class="forecast-box">
+          <h5>Fri</h5>
+          <i class="bi bi-cloud-sun-fill"></i>
+           <div class="d-flex justify-content-center gap-4">
+            <p>77°</p>
+            <p>55°</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="col">
+        <div class="forecast-box">
+          <h5>Sat</h5>
+          <i class="bi bi-cloud-lightning-fill"></i>
+           <div class="d-flex justify-content-center gap-4">
+            <p>70°</p>
+            <p>59°</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="col">
+        <div class="forecast-box">
+          <h5>Sun</h5>
+          <i class="bi bi-cloud-snow-fill"></i>
+           <div class="d-flex justify-content-center gap-4">
+            <p>77°</p>
+            <p>61°</p>
+          </div>
+        </div>
+      </div>
+
+       <div class="col">
+        <div class="forecast-box">
+          <h5>Mon</h5>
+          <i class="bi bi-cloud-fog-fill"></i>
+           <div class="d-flex justify-content-center gap-4">
+            <p>75°</p>
+            <p>59°</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <!-- Right side -->
+     <div class="col-lg-3">
+      <div class="hourly-card">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h6>Hourly Forecast</h6>
+          <select class="form-select day-select">
+            <option>Monday</option>
+            <option>Tueday</option>
+            <option>Wednessday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+        </div>
+
+        <!-- forecast-item -->
+         <div class="cast-item">
+          <i class="bi bi-cloud-fill"></i>
+          <span>3 PM</span>
+          <strong>68°</strong>
+         </div>
+
+          <div class="cast-item">
+          <i class="bi bi-cloud-drizzle-fill"></i>
+          <span>4 PM</span>
+          <strong>68°</strong>
+         </div>
+
+          <div class="cast-item">
+          <i class="bi bi-sun-fill"></i>
+          <span>5 PM</span>
+          <strong>68°</strong>
+         </div>
+
+          <div class="cast-item">
+          <i class="bi bi-cloud-lightning-fill"></i>
+          <span>6 PM</span>
+          <strong>66°</strong>
+         </div>
+
+          <div class="cast-item">
+          <i class="bi bi-cloud-rain-fill"></i>
+          <span>7 PM</span>
+          <strong>66°</strong>
+         </div>
+
+          <div class="cast-item">
+          <i class="bi bi-cloud-fog-fill"></i>
+          <span>8 PM</span>
+          <strong>64°</strong>
+         </div>
+
+          <div class="cast-item">
+          <i class="bi bi-cloud-rain-heavy-fill"></i>
+          <span>9 PM</span>
+          <strong>63°</strong>
+         </div>
+
+          <div class="cast-item">
+          <i class="bi bi-cloud-fill"></i>
+          <span>10 PM</span>
+          <strong>63°</strong>
+         </div>
+
+      </div>
+     </div>
+
+      
+      </div>
+    </div>
+
+   
+  
+
+
+
+
+  
+
+  
+  
+
+  
+
+  
+
+
 
   Feels like
   <!-- Insert temperature here -->
@@ -62,5 +344,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </footer>
+  <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>
