@@ -27,14 +27,16 @@ searchButton.addEventListener("click", async (entry) => {
       // }
 
       const locationData = await getLocationData(city);
-      // console.log(locationData);
+      console.log(locationData);
 
       // if (locationData === undefined) {
       //   throw new Error("Could not fetch location data");
       // }
       console.log(`${locationData.lat}\n${locationData.long}`);
 
-      getWeatherData(locationData);
+      const WeatherData = await getWeatherData(locationData);
+      console.log(WeatherData);
+      
     } catch (error) {
       if (error instanceof TypeError && !navigator.onLine) {
         throw new Error("please connect to internet");
@@ -64,7 +66,7 @@ const getLocationData = async (city) => {
   // }
 
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
 
   if (!data.results) {
     throw new Error("Could not fetch city data");
@@ -98,7 +100,7 @@ const getLocationData = async (city) => {
 };
 
 const getWeatherData = async (locationData) => {
-  console.log(locationData);
+  // console.log(locationData);
   const response = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${locationData.lat}&longitude=${locationData.long}&daily=weather_code,temperature_2m_max,temperature_2m_min&hourly=weather_code,temperature_2m&models=best_match&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&timezone=auto&wind_speed_unit=mph`,
   );
@@ -108,5 +110,22 @@ const getWeatherData = async (locationData) => {
   }
   // console.log(response);
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
+
+  const currentData = {
+    current: data.current,
+    currentUnits: data.current_units,
+  };
+
+  const dailyData = {
+    daily: data.daily,
+    dailyUnits: data.daily_units,
+  };
+  const hourlyData = {
+    hourly: data.hourly,
+    hourlyUnits: data.hourly_units,
+  };
+  // console.log(hourlyData.hourly);
+
+  return { currentData, dailyData, hourlyData };
 };
