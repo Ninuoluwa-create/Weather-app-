@@ -99,6 +99,10 @@ option {
   max-width: 100% !important;
   padding: 0 1rem;
 }
+.row.justify-content-center {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 @media (max-width: 768px) {
   .main-title {
@@ -185,5 +189,14 @@ option {
   }
   .row.justify-content-center {
     padding: 0 1rem;
+  }
+  #forecast{
+    column-gap: 4%;
+    row-gap: 0.5rem;
+  }
+  #forecast .col{
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(30%);
   }
 }
