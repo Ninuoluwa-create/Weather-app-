@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -5,6 +6,9 @@
 }
 body {
   background-color: hsl(243, 96%, 9%);
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 .main-title {
   font-size: 50px;
@@ -103,7 +107,21 @@ option {
   margin-left: 0px;
   margin-right: 0px;
 }
-
+#current-city-info {
+  display: flex;
+  /* justify-items: center;
+  align-items: center; */
+  place-items: center;
+}
+#current-city-info .weather-icon img {
+  max-width: 8rem;
+  
+}
+#city-temp h1{
+  font-size: 5rem;
+  font-style: italic;
+  font-weight: 600;
+}
 @media (max-width: 768px) {
   .main-title {
     font-size: 26px;
@@ -190,11 +208,11 @@ option {
   .row.justify-content-center {
     padding: 0 1rem;
   }
-  #forecast{
+  #forecast {
     column-gap: 4%;
     row-gap: 0.5rem;
   }
-  #forecast .col{
+  #forecast .col {
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: calc(30%);

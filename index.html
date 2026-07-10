@@ -108,8 +108,8 @@
         <div class="col-lg-9">
           <div class="d-flex justify-content-between weather-card">
             <div>
-              <h2>Berlin, Germany</h2>
-              <p>Tuesday, Aug 5, 2026</p>
+              <h2 id="cityName">Search any City</h2>
+              <p data-current="date">Date:--</p>
             </div>
             <!-- Remember to delete 👇 -->
             <!-- <div class="">
@@ -122,12 +122,14 @@
               </span>
             </div> -->
             <!-- Remember to delete 👆 -->
-
-            <div class="temp-section">
-              <i class="bi bi-sun-fill text-warning fs-1"></i>
-            </div>
-            <div>
-              <h1>68°</h1>
+            <div id="current-city-info">
+              <div class="weather-icon">
+                <!-- <i class="bi bi-sun-fill text-warning fs-1"></i> -->
+                 <img src="./assets/images/icon-sunny.webp" alt="" data-current="weather-icon"/>
+              </div>
+              <div id="city-temp">
+                <h1 data-current="temp">00°</h1>
+              </div>
             </div>
           </div>
 
@@ -137,28 +139,28 @@
             <div class="col-md-3">
               <div class="info-box">
                 <small>Feels Like</small>
-                <h2>64°</h2>
+                <h2 data-current="temp">--</h2>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="info-box">
                 <small>Humidity</small>
-                <h2>46%</h2>
+                <h2 data-current="humidity">--</h2>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="info-box">
                 <small>Wind</small>
-                <h2>9 mph</h2>
+                <h2 data-current="wind">--</h2>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="info-box">
-                <small>precipitation</small>
-                <h2>0 mm</h2>
+                <small>Precipitation</small>
+                <h2 data-current="precipitation">--</h2>
               </div>
             </div>
           </div>
@@ -167,84 +169,84 @@
 
           <h4 class="daily">Daily Forecast</h4>
 
-            <div class="row g-1" id="forecast">
-              <div class="col">
-                <div class="forecast-box">
-                  <h5>Tue</h5>
-                  <i class="bi bi-cloud-rain-fill"></i>
-                  <div class="d-flex justify-content-center gap-4">
-                    <p>68°</p>
-                    <p>57°</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="forecast-box">
-                  <h5>Wed</h5>
-                  <i class="bi bi-cloud-drizzle-fill"></i>
-                  <div class="d-flex justify-content-center gap-4">
-                    <p>70°</p>
-                    <p>59°</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="forecast-box">
-                  <h5>Thur</h5>
-                  <i class="bi bi-sun-fill"></i>
-                  <div class="d-flex justify-content-center gap-4">
-                    <p>75°</p>
-                    <p>57°</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="forecast-box">
-                  <h5>Fri</h5>
-                  <i class="bi bi-cloud-sun-fill"></i>
-                  <div class="d-flex justify-content-center gap-4">
-                    <p>77°</p>
-                    <p>55°</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="forecast-box">
-                  <h5>Sat</h5>
-                  <i class="bi bi-cloud-lightning-fill"></i>
-                  <div class="d-flex justify-content-center gap-4">
-                    <p>70°</p>
-                    <p>59°</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="forecast-box">
-                  <h5>Sun</h5>
-                  <i class="bi bi-cloud-snow-fill"></i>
-                  <div class="d-flex justify-content-center gap-4">
-                    <p>77°</p>
-                    <p>61°</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="forecast-box">
-                  <h5>Mon</h5>
-                  <i class="bi bi-cloud-fog-fill"></i>
-                  <div class="d-flex justify-content-center gap-4">
-                    <p>75°</p>
-                    <p>59°</p>
-                  </div>
+          <div class="row g-1" id="forecast">
+            <div class="col">
+              <div class="forecast-box">
+                <h5>Tue</h5>
+                <i class="bi bi-cloud-rain-fill"></i>
+                <div class="d-flex justify-content-center gap-4">
+                  <p>68°</p>
+                  <p>57°</p>
                 </div>
               </div>
             </div>
+
+            <div class="col">
+              <div class="forecast-box">
+                <h5>Wed</h5>
+                <i class="bi bi-cloud-drizzle-fill"></i>
+                <div class="d-flex justify-content-center gap-4">
+                  <p>70°</p>
+                  <p>59°</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="forecast-box">
+                <h5>Thur</h5>
+                <i class="bi bi-sun-fill"></i>
+                <div class="d-flex justify-content-center gap-4">
+                  <p>75°</p>
+                  <p>57°</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="forecast-box">
+                <h5>Fri</h5>
+                <i class="bi bi-cloud-sun-fill"></i>
+                <div class="d-flex justify-content-center gap-4">
+                  <p>77°</p>
+                  <p>55°</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="forecast-box">
+                <h5>Sat</h5>
+                <i class="bi bi-cloud-lightning-fill"></i>
+                <div class="d-flex justify-content-center gap-4">
+                  <p>70°</p>
+                  <p>59°</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="forecast-box">
+                <h5>Sun</h5>
+                <i class="bi bi-cloud-snow-fill"></i>
+                <div class="d-flex justify-content-center gap-4">
+                  <p>77°</p>
+                  <p>61°</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="forecast-box">
+                <h5>Mon</h5>
+                <i class="bi bi-cloud-fog-fill"></i>
+                <div class="d-flex justify-content-center gap-4">
+                  <p>75°</p>
+                  <p>59°</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Right side -->
@@ -315,8 +317,6 @@
         </div>
       </div>
     </div>
-
-
 
     <footer class="attribution">
       Challenge by
