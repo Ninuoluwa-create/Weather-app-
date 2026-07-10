@@ -35,8 +35,11 @@ searchButton.addEventListener("click", async (entry) => {
       console.log(`${locationData.lat}\n${locationData.long}`);
 
       const WeatherData = await getWeatherData(locationData);
-      console.log(WeatherData);
-      
+      // console.log(WeatherData);
+      const currentWeatherData = getCurrentWeatherData(WeatherData);
+
+      displayLocationInfo(locationData);
+      displayCurrentWeatherInfo(currentWeatherData);
     } catch (error) {
       if (error instanceof TypeError && !navigator.onLine) {
         throw new Error("please connect to internet");
@@ -129,3 +132,72 @@ const getWeatherData = async (locationData) => {
 
   return { currentData, dailyData, hourlyData };
 };
+
+const displayLocationInfo = (locationData) => {
+  const cityName = document.querySelector("#cityName");
+  cityName.textContent = `${locationData.name}, ${locationData.country}`;
+};
+
+const getCurrentWeatherData = (WeatherData) => {
+  return WeatherData.currentData.current;
+};
+
+const displayCurrentWeatherInfo = (currentWeatherData) => {
+  console.log(currentWeatherData);
+  const dataCurrent = document.querySelectorAll("[data-current]");
+  const dataCurrentTemp = document.querySelectorAll("[data-current=temp]");
+  const dataCurrentHumid = document.querySelector("[data-current=humidity]");
+  const dataCurrentWind = document.querySelector("[data-current=wind]");
+  const dataCurrentPrec = document.querySelector(
+    "[data-current=precipitation]",
+  );
+  const dataCurrentDate = document.querySelector("[data-current=date]");
+
+  dataCurrentTemp.forEach((value) => {
+    value.textContent = `${currentWeatherData.temperature_2m}°`;
+  });
+  dataCurrentHumid.textContent = `${currentWeatherData.relative_humidity_2m}%`;
+  dataCurrentWind.textContent = `${currentWeatherData.wind_speed_10m}mph`;
+  dataCurrentPrec.textContent = `${currentWeatherData.precipitation}mm`;
+
+  // const longName = date.toLocaleDateString("en-US", {
+  //   weekday: "long",
+  //   timeZone: "UTC",
+  // });
+  // // "Thursday"
+
+  // const shortName = date.toLocaleDateString("en-US", {
+  //   weekday: "short",
+  //   timeZone: "UTC",
+  // });
+
+  // console.log(longName);
+
+  // "Thu"
+
+  // const isoString = "2026-08-05T12:00:00.000Z";
+  // const date = new Date(isoString);
+
+  const date = new Date(currentWeatherData.time);
+  // const options = {
+  //   weekday: "long",
+  //   month: "short",
+  //   day: "numeric",
+  //   year: "numeric",
+  // };
+  const options = {
+    dateStyle: "full",
+    //  timeStyle: "short"
+  };
+
+  const currentDate = new Intl.DateTimeFormat("en-US", options).format(date);
+  console.log(currentDate);
+
+  dataCurrentDate.textContent = currentDate;
+
+  const weather_code = currentWeatherData.weather_code;
+  console.log(weather_code);
+};
+
+// time: "2026-07-09T09:00";
+// weather_code: 3;
