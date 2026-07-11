@@ -35,8 +35,11 @@ searchButton.addEventListener("click", async (entry) => {
       console.log(`${locationData.lat}\n${locationData.long}`);
 
       const WeatherData = await getWeatherData(locationData);
-      console.log(WeatherData);
+      // console.log(WeatherData);
       const currentWeatherData = getCurrentWeatherData(WeatherData);
+      const dailyWeatherData = getDailyWeatherData(WeatherData);
+      console.log(dailyWeatherData);
+      
 
       displayLocationInfo(locationData);
       displayCurrentWeatherInfo(currentWeatherData);
@@ -255,6 +258,10 @@ const displayCurrentWeatherInfo = (currentWeatherData) => {
       break;
   }
   // Code to change the Weather icon 👆
+};
+
+const getDailyWeatherData = (WeatherData) => {
+  return WeatherData.dailyData.daily;
 };
 
 // time: "2026-07-09T09:00";
