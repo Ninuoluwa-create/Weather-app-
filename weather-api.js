@@ -35,7 +35,7 @@ searchButton.addEventListener("click", async (entry) => {
       console.log(`${locationData.lat}\n${locationData.long}`);
 
       const WeatherData = await getWeatherData(locationData);
-      // console.log(WeatherData);
+      console.log(WeatherData);
       const currentWeatherData = getCurrentWeatherData(WeatherData);
 
       displayLocationInfo(locationData);
@@ -143,7 +143,7 @@ const getCurrentWeatherData = (WeatherData) => {
 };
 
 const displayCurrentWeatherInfo = (currentWeatherData) => {
-  console.log(currentWeatherData);
+  // console.log(currentWeatherData);
   const dataCurrent = document.querySelectorAll("[data-current]");
   const dataCurrentTemp = document.querySelectorAll("[data-current=temp]");
   const dataCurrentHumid = document.querySelector("[data-current=humidity]");
@@ -159,6 +159,8 @@ const displayCurrentWeatherInfo = (currentWeatherData) => {
   dataCurrentHumid.textContent = `${currentWeatherData.relative_humidity_2m}%`;
   dataCurrentWind.textContent = `${currentWeatherData.wind_speed_10m}mph`;
   dataCurrentPrec.textContent = `${currentWeatherData.precipitation}mm`;
+
+  // Code to change the Date 👇
 
   // const longName = date.toLocaleDateString("en-US", {
   //   weekday: "long",
@@ -189,14 +191,70 @@ const displayCurrentWeatherInfo = (currentWeatherData) => {
     dateStyle: "full",
     //  timeStyle: "short"
   };
-
   const currentDate = new Intl.DateTimeFormat("en-US", options).format(date);
-  console.log(currentDate);
-
+  // console.log(currentDate);
   dataCurrentDate.textContent = currentDate;
 
+  // Code to change the Date 👆
+
+  // Code to change the Weather icon 👇
+  const dataCurrentIcon = document.querySelector("[data-current=weather-icon]");
+
+  // console.log(dataCurrentIcon);
+
   const weather_code = currentWeatherData.weather_code;
-  console.log(weather_code);
+  // console.log(weather_code);
+
+  switch (true) {
+    // Sunny
+    case weather_code <= 1:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-sunny.webp");
+      break;
+    // Partly-Cloudy
+    case weather_code == 2:
+      dataCurrentIcon.setAttribute(
+        "src",
+        "./assets/images/icon-partly-cloudy.webp",
+      );
+      break;
+    // Overcast
+    case weather_code == 3:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-overcast.webp");
+      break;
+    // Fog
+    case weather_code <= 48:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-fog.webp");
+      break;
+    // Drizzle
+    case weather_code <= 57:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-drizzle.webp");
+      break;
+    // Rain
+    case weather_code <= 67:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-rain.webp");
+      break;
+    // Snow
+    case weather_code <= 77:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-snow.webp");
+      break;
+    // Rain Showers
+    case weather_code <= 82:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-rain.webp");
+      break;
+    // Snow Showers
+    case weather_code <= 86:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-snow.webp");
+      break;
+    // Thunderstorm
+    case weather_code <= 99:
+      dataCurrentIcon.setAttribute("src", "./assets/images/icon-storm.webp");
+      break;
+
+    // Default(Nothing happens)
+    default:
+      break;
+  }
+  // Code to change the Weather icon 👆
 };
 
 // time: "2026-07-09T09:00";
