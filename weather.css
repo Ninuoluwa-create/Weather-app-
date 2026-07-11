@@ -52,9 +52,10 @@ body {
   border-radius: 15px;
   padding: 1px;
   margin-left: 15px;
+  border: 1px solid hsl(243, 23%, 30%);
 }
 .forecast-box h5 {
-  font-size: 13px;
+  /* font-size: 18px; */
   text-align: center;
   padding-top: 12px;
 }
@@ -63,9 +64,19 @@ body {
   display: block;
   padding: 15px 0px 15px 0px;
 }
+.forecast-box img {
+  width: 4rem;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+}
 .forecast-box p {
   justify-content: center;
 }
+[data-daily="min_temp"] {
+  opacity: 65%;
+} 
 .hourly-card {
   background-color: hsl(243, 27%, 20%);
   border-radius: 15px;
@@ -115,9 +126,8 @@ option {
 }
 #current-city-info .weather-icon img {
   max-width: 8rem;
-  
 }
-#city-temp h1{
+#city-temp h1 {
   font-size: 5rem;
   font-style: italic;
   font-weight: 600;
@@ -148,14 +158,14 @@ option {
     margin-left: 4px;
     padding: 4px 2px;
   }
-  .forecast-box h5 {
+  /* .forecast-box h5 {
     font-size: 10px;
-  }
+  } */
   .forecast-box p {
-    font-size: 9px;
+    /* font-size: 9px; */
   }
   .forecast-box .d-flex {
-    gap: 4px !important;
+    /* gap: 4px !important; */
   }
   .daily {
     margin-left: 0;
@@ -197,13 +207,13 @@ option {
   }
   .forecast-box {
     margin-left: 2px;
-    font-size: 9px;
+    /* font-size: 9px; */
   }
-  .forecast-box h5 {
+  /* .forecast-box h5 {
     font-size: 9px;
-  }
+  } */
   .forecast-box p {
-    font-size: 8px;
+    /* font-size: 8px; */
   }
   .row.justify-content-center {
     padding: 0 1rem;
