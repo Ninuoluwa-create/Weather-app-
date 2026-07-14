@@ -1,6 +1,19 @@
 const cityInput = document.querySelector("input[type=text]");
 const searchButton = document.querySelector("#searchbutton");
 
+// Enter key event listener 👇
+cityInput.addEventListener("keydown", (event) => {
+  // console.log(event.target);
+  // console.log(event.key);
+
+  if (event.key === "Enter") {
+    event.preventDefault();
+
+    searchButton.click();
+  }
+});
+// Enter key event listener 👆
+
 searchButton.addEventListener("click", async (entry) => {
   entry.preventDefault();
   const city = cityInput.value.toLowerCase();
@@ -39,10 +52,10 @@ searchButton.addEventListener("click", async (entry) => {
       const currentWeatherData = getCurrentWeatherData(WeatherData);
       const dailyWeatherData = getDailyWeatherData(WeatherData);
       console.log(dailyWeatherData);
-      
 
       displayLocationInfo(locationData);
       displayCurrentWeatherInfo(currentWeatherData);
+      displayDailyWeatherInfo(dailyWeatherData);
     } catch (error) {
       if (error instanceof TypeError && !navigator.onLine) {
         throw new Error("please connect to internet");
@@ -264,5 +277,100 @@ const getDailyWeatherData = (WeatherData) => {
   return WeatherData.dailyData.daily;
 };
 
-// time: "2026-07-09T09:00";
-// weather_code: 3;
+const displayDailyWeatherInfo = (dailyWeatherData) => {
+  // To Change the daily Weekday 👇
+  const dataDailyDay = document.querySelectorAll("[data-daily=date]");
+  const dataDailyDayArray = [...dataDailyDay];
+
+  dataDailyDayArray.forEach((Day) => {
+    const dayIndex = dataDailyDayArray.indexOf(Day);
+    // console.log(dayIndex);
+
+    const date = new Date(dailyWeatherData.time[dayIndex]);
+    // console.log(date);
+
+    const weekday = new Intl.DateTimeFormat("en-US", {
+      weekday: "short",
+    }).format(date);
+    // console.log(weekday);
+
+    Day.textContent = weekday;
+  });
+  // To Change the daily Weekday 👆
+
+  // To Change the daily Weather icon 👇
+  const dataDailyIcon = document.querySelectorAll("[data-daily=weather-icon]");
+  const dataDailyIconArray = [...dataDailyIcon];
+
+  // console.log(dataDailyIconArray);
+  dataDailyIconArray.forEach((icon) => {
+    const iconIndex = dataDailyIconArray.indexOf(icon);
+    // console.log(iconIndex);
+
+    const weather_code = dailyWeatherData.weather_code[iconIndex];
+    // console.log(weather_code);
+
+    switch (true) {
+      // Sunny
+      case weather_code <= 1:
+        icon.setAttribute("src", "./assets/images/icon-sunny.webp");
+        break;
+      // Partly-Cloudy
+      case weather_code == 2:
+        icon.setAttribute("src", "./assets/images/icon-partly-cloudy.webp");
+        break;
+      // Overcast
+      case weather_code == 3:
+        icon.setAttribute("src", "./assets/images/icon-overcast.webp");
+        break;
+      // Fog
+      case weather_code <= 48:
+        icon.setAttribute("src", "./assets/images/icon-fog.webp");
+        break;
+      // Drizzle
+      case weather_code <= 57:
+        icon.setAttribute("src", "./assets/images/icon-drizzle.webp");
+        break;
+      // Rain
+      case weather_code <= 67:
+        icon.setAttribute("src", "./assets/images/icon-rain.webp");
+        break;
+      // Snow
+      case weather_code <= 77:
+        icon.setAttribute("src", "./assets/images/icon-snow.webp");
+        break;
+      // Rain Showers
+      case weather_code <= 82:
+        icon.setAttribute("src", "./assets/images/icon-rain.webp");
+        break;
+      // Snow Showers
+      case weather_code <= 86:
+        icon.setAttribute("src", "./assets/images/icon-snow.webp");
+        break;
+      // Thunderstorm
+      case weather_code <= 99:
+        icon.setAttribute("src", "./assets/images/icon-storm.webp");
+        break;
+
+      // Default(Nothing happens)
+      default:
+        break;
+    }
+  });
+  // To Change the daily Weather icon 👆
+};
+
+// const dataDailyDay = document.querySelectorAll("[data-daily=date]");
+
+// console.log(dataDailyDay);
+// const dataDailyDayArray = [...dataDailyDay];
+// console.log(dataDailyDayArray);
+// dataDailyDayArray[0].textContent = "Tuesday";
+
+// const dataDailyDay = document.querySelectorAll("[data-daily=date]");
+// const dataDailyDayArray = [...dataDailyDay];
+
+// dataDailyDayArray.forEach((Day) => {
+//   const dayIndex = dataDailyDayArray.indexOf(Day);
+//   console.log(dayIndex);
+// });
