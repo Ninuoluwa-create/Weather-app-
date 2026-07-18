@@ -51,7 +51,8 @@ searchButton.addEventListener("click", async (entry) => {
       // console.log(WeatherData);
       const currentWeatherData = getCurrentWeatherData(WeatherData);
       const dailyWeatherData = getDailyWeatherData(WeatherData);
-      console.log(dailyWeatherData);
+      const hourlyWeatherData = getHourlyWeatherData(WeatherData);
+      console.log(hourlyWeatherData);
 
       displayLocationInfo(locationData);
       displayCurrentWeatherInfo(currentWeatherData);
@@ -298,6 +299,28 @@ const displayDailyWeatherInfo = (dailyWeatherData) => {
   });
   // To Change the daily Weekday 👆
 
+  // To Change the hourly in the hourly card section Weekday 👇
+  const dataHourlyDay = document.querySelectorAll("[data-daily=date2]");
+  const dataHourlyDayArray = [...dataHourlyDay];
+  // console.log(dataHourlyDayArray);
+
+  dataHourlyDayArray.forEach((Day) => {
+    const dayIndex = dataHourlyDayArray.indexOf(Day);
+    // console.log(dayIndex);
+
+    const date = new Date(dailyWeatherData.time[dayIndex]);
+    // console.log(date);
+
+    const weekday = new Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+    }).format(date);
+    // console.log(weekday);
+
+    Day.textContent = weekday;
+  });
+
+  // To Change the hourly in the hourly card section Weekday 👆
+
   // To Change the daily Weather icon 👇
   const dataDailyIcon = document.querySelectorAll("[data-daily=weather-icon]");
   const dataDailyIconArray = [...dataDailyIcon];
@@ -358,19 +381,36 @@ const displayDailyWeatherInfo = (dailyWeatherData) => {
     }
   });
   // To Change the daily Weather icon 👆
+
+  // To Change the daily Max Temperature 👇
+
+  const dataDailyTempMax = document.querySelectorAll("[data-daily=max_temp]");
+  const dataDailyTempMaxArray = [...dataDailyTempMax];
+
+  dataDailyTempMaxArray.forEach((tempMax) => {
+    const tempMaxIndex = dataDailyTempMaxArray.indexOf(tempMax);
+    // console.log(tempMaxIndex);
+
+    tempMax.textContent = `${dailyWeatherData.temperature_2m_max[tempMaxIndex]}°`;
+  });
+
+  // To Change the daily Max Temperature 👆
+
+  // To Change the daily Min Temperature 👇
+
+  const dataDailyTempMin = document.querySelectorAll("[data-daily=min_temp]");
+  const dataDailyTempMinArray = [...dataDailyTempMin];
+
+  dataDailyTempMinArray.forEach((tempMin) => {
+    const tempMinIndex = dataDailyTempMinArray.indexOf(tempMin);
+    // console.log(tempMinIndex);
+
+    tempMin.textContent = `${dailyWeatherData.temperature_2m_min[tempMinIndex]}°`;
+  });
+
+  // To Change the daily Min Temperature 👆
 };
 
-// const dataDailyDay = document.querySelectorAll("[data-daily=date]");
-
-// console.log(dataDailyDay);
-// const dataDailyDayArray = [...dataDailyDay];
-// console.log(dataDailyDayArray);
-// dataDailyDayArray[0].textContent = "Tuesday";
-
-// const dataDailyDay = document.querySelectorAll("[data-daily=date]");
-// const dataDailyDayArray = [...dataDailyDay];
-
-// dataDailyDayArray.forEach((Day) => {
-//   const dayIndex = dataDailyDayArray.indexOf(Day);
-//   console.log(dayIndex);
-// });
+const getHourlyWeatherData = (WeatherData) => {
+  return WeatherData.hourlyData.hourly;
+};
