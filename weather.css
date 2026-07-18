@@ -92,6 +92,7 @@ body {
   padding: 0 0.8rem 1.25rem;
   max-height: 35.25rem;
   overflow-y: auto;
+  margin-bottom: 1.25rem;
 }
 #hourly-card-list::-webkit-scrollbar {
   width: 5px;

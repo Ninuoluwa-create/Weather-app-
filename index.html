@@ -297,14 +297,14 @@
               class="d-flex justify-content-between align-items-center mb-4"
             >
               <h6>Hourly Forecast</h6>
-              <select class="form-select day-select">
-                <option selected data-daily="date2">Day 1</option>
-                <option data-daily="date2">Day 2</option>
-                <option data-daily="date2">Day 3</option>
-                <option data-daily="date2">Day 4</option>
-                <option data-daily="date2">Day 5</option>
-                <option data-daily="date2">Day 6</option>
-                <option data-daily="date2">Day 7</option>
+              <select class="form-select day-select" id="weekday-select">
+                <option selected data-daily="date2" value="0">Day 1</option>
+                <option data-daily="date2" value="24">Day 2</option>
+                <option data-daily="date2" value="48">Day 3</option>
+                <option data-daily="date2" value="72">Day 4</option>
+                <option data-daily="date2" value="96">Day 5</option>
+                <option data-daily="date2" value="120">Day 6</option>
+                <option data-daily="date2" value="144">Day 7</option>
               </select>
             </div>
 
@@ -319,7 +319,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>12 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -330,7 +330,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>1 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -341,7 +341,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>2 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -352,7 +352,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>3 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -363,7 +363,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>4 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -374,7 +374,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>5 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -385,7 +385,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>6 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -396,7 +396,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>7 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -407,7 +407,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>8 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -418,7 +418,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>9 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -429,7 +429,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>10 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -440,7 +440,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>11 AM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -451,7 +451,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>12 PM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -462,7 +462,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>1 PM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -473,7 +473,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>2 PM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -484,7 +484,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>3 PM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -495,7 +495,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>4 PM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -506,7 +506,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>5 PM</span>
-                <strong>68°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -517,7 +517,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>6 PM</span>
-                <strong>66°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -528,7 +528,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>7 PM</span>
-                <strong>66°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -539,7 +539,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>8 PM</span>
-                <strong>64°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -550,7 +550,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>9 PM</span>
-                <strong>63°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -561,7 +561,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>10 PM</span>
-                <strong>63°</strong>
+                <strong>00°</strong>
               </div>
 
               <div class="cast-item">
@@ -572,7 +572,7 @@
                   data-hourly="weather-icon"
                 />
                 <span>11 PM</span>
-                <strong>63°</strong>
+                <strong>00°</strong>
               </div>
             </div>
           </div>
