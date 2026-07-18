@@ -38,8 +38,9 @@
           class="d-flex justify-content-between align-items-center justify-content-between mb-5"
         >
           <div class="d-flex align-items-center">
-            <i class="bi bi-sun text-danger fs-3 me-2"></i>
-            <h4 class="text-white mb-1">Weather Now</h4>
+            <!-- <i class="bi bi-sun text-danger fs-3 me-2"></i> -->
+            <img src="./assets/images/logo.svg" alt="Weather Now" />
+            <!-- <h4 class="text-white mb-1">Weather Now</h4> -->
           </div>
 
           <div class="dropdown">
@@ -184,8 +185,8 @@
                   alt=""
                 />
                 <div class="d-flex justify-content-center gap-4">
-                  <p data-daily="max_temp">68°</p>
-                  <p data-daily="min_temp">57°</p>
+                  <p data-daily="max_temp">00°</p>
+                  <p data-daily="min_temp">00°</p>
                 </div>
               </div>
             </div>
@@ -200,8 +201,8 @@
                   alt=""
                 />
                 <div class="d-flex justify-content-center gap-4">
-                  <p data-daily="max_temp">70°</p>
-                  <p data-daily="min_temp">59°</p>
+                  <p data-daily="max_temp">00°</p>
+                  <p data-daily="min_temp">00°</p>
                 </div>
               </div>
             </div>
@@ -216,8 +217,8 @@
                   alt=""
                 />
                 <div class="d-flex justify-content-center gap-4">
-                  <p data-daily="max_temp">75°</p>
-                  <p data-daily="min_temp">57°</p>
+                  <p data-daily="max_temp">00°</p>
+                  <p data-daily="min_temp">00°</p>
                 </div>
               </div>
             </div>
@@ -232,8 +233,8 @@
                   alt=""
                 />
                 <div class="d-flex justify-content-center gap-4">
-                  <p data-daily="max_temp">77°</p>
-                  <p data-daily="min_temp">55°</p>
+                  <p data-daily="max_temp">00°</p>
+                  <p data-daily="min_temp">00°</p>
                 </div>
               </div>
             </div>
@@ -248,8 +249,8 @@
                   alt=""
                 />
                 <div class="d-flex justify-content-center gap-4">
-                  <p data-daily="max_temp">70°</p>
-                  <p data-daily="min_temp">59°</p>
+                  <p data-daily="max_temp">00°</p>
+                  <p data-daily="min_temp">00°</p>
                 </div>
               </div>
             </div>
@@ -264,8 +265,8 @@
                   alt=""
                 />
                 <div class="d-flex justify-content-center gap-4">
-                  <p data-daily="max_temp">77°</p>
-                  <p data-daily="min_temp">61°</p>
+                  <p data-daily="max_temp">00°</p>
+                  <p data-daily="min_temp">00°</p>
                 </div>
               </div>
             </div>
@@ -280,8 +281,8 @@
                   alt=""
                 />
                 <div class="d-flex justify-content-center gap-4">
-                  <p data-daily="max_temp">75°</p>
-                  <p data-daily="min_temp">59°</p>
+                  <p data-daily="max_temp">00°</p>
+                  <p data-daily="min_temp">00°</p>
                 </div>
               </div>
             </div>
@@ -291,66 +292,288 @@
         <!-- Right side -->
         <div class="col-lg-3">
           <div class="hourly-card">
-            <div class="d-flex justify-content-between align-items-center mb-4">
+            <div
+              id="hourly-card-title"
+              class="d-flex justify-content-between align-items-center mb-4"
+            >
               <h6>Hourly Forecast</h6>
               <select class="form-select day-select">
-                <option>Monday</option>
-                <option>Tuesday</option>
-                <option>Wednesday</option>
-                <option>Thursday</option>
-                <option>Friday</option>
-                <option>Saturday</option>
-                <option>Sunday</option>
+                <option selected data-daily="date2">Day 1</option>
+                <option data-daily="date2">Day 2</option>
+                <option data-daily="date2">Day 3</option>
+                <option data-daily="date2">Day 4</option>
+                <option data-daily="date2">Day 5</option>
+                <option data-daily="date2">Day 6</option>
+                <option data-daily="date2">Day 7</option>
               </select>
             </div>
 
             <!-- forecast-item -->
-            <div class="cast-item">
-              <i class="bi bi-cloud-fill"></i>
-              <span>3 PM</span>
-              <strong>68°</strong>
-            </div>
 
-            <div class="cast-item">
-              <i class="bi bi-cloud-drizzle-fill"></i>
-              <span>4 PM</span>
-              <strong>68°</strong>
-            </div>
+            <div id="hourly-card-list">
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>12 AM</span>
+                <strong>68°</strong>
+              </div>
 
-            <div class="cast-item">
-              <i class="bi bi-sun-fill"></i>
-              <span>5 PM</span>
-              <strong>68°</strong>
-            </div>
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>1 AM</span>
+                <strong>68°</strong>
+              </div>
 
-            <div class="cast-item">
-              <i class="bi bi-cloud-lightning-fill"></i>
-              <span>6 PM</span>
-              <strong>66°</strong>
-            </div>
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>2 AM</span>
+                <strong>68°</strong>
+              </div>
 
-            <div class="cast-item">
-              <i class="bi bi-cloud-rain-fill"></i>
-              <span>7 PM</span>
-              <strong>66°</strong>
-            </div>
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>3 AM</span>
+                <strong>68°</strong>
+              </div>
 
-            <div class="cast-item">
-              <i class="bi bi-cloud-fog-fill"></i>
-              <span>8 PM</span>
-              <strong>64°</strong>
-            </div>
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>4 AM</span>
+                <strong>68°</strong>
+              </div>
 
-            <div class="cast-item">
-              <i class="bi bi-cloud-rain-heavy-fill"></i>
-              <span>9 PM</span>
-              <strong>63°</strong>
-            </div>
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>5 AM</span>
+                <strong>68°</strong>
+              </div>
 
-            <div class="cast-item">
-              <i class="bi bi-cloud-fill"></i>
-              <span>10 PM</span>
-              <strong>63°</strong>
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>6 AM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>7 AM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>8 AM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>9 AM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>10 AM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>11 AM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>12 PM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>1 PM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>2 PM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>3 PM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-drizzle-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>4 PM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-sun-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>5 PM</span>
+                <strong>68°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-lightning-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>6 PM</span>
+                <strong>66°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-rain-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>7 PM</span>
+                <strong>66°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fog-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>8 PM</span>
+                <strong>64°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-rain-heavy-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>9 PM</span>
+                <strong>63°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>10 PM</span>
+                <strong>63°</strong>
+              </div>
+
+              <div class="cast-item">
+                <!-- <i class="bi bi-cloud-fill"></i> -->
+                <img
+                  src="./assets/images/icon-sunny.webp"
+                  alt=""
+                  data-hourly="weather-icon"
+                />
+                <span>11 PM</span>
+                <strong>63°</strong>
+              </div>
             </div>
           </div>
         </div>
