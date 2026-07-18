@@ -57,6 +57,7 @@ searchButton.addEventListener("click", async (entry) => {
       displayLocationInfo(locationData);
       displayCurrentWeatherInfo(currentWeatherData);
       displayDailyWeatherInfo(dailyWeatherData);
+      displayHourlyWeatherInfo(hourlyWeatherData);
     } catch (error) {
       if (error instanceof TypeError && !navigator.onLine) {
         throw new Error("please connect to internet");
@@ -413,4 +414,168 @@ const displayDailyWeatherInfo = (dailyWeatherData) => {
 
 const getHourlyWeatherData = (WeatherData) => {
   return WeatherData.hourlyData.hourly;
+};
+
+const displayHourlyWeatherInfo = (hourlyWeatherData) => {
+  const hourIcon = document.querySelectorAll(".cast-item img");
+  const hourIconArray = [...hourIcon];
+  // console.log(hourIconArray);
+
+  const hourTemp = document.querySelectorAll(".cast-item strong");
+  const hourTempArray = [...hourTemp];
+  // console.log(hourTempArray);
+
+  const daySelect = document.querySelector("#weekday-select");
+
+  let extraIndex = 0;
+  const updatingExtraIndex = (addedIndex) => {
+    extraIndex = 0;
+    extraIndex = extraIndex + addedIndex;
+    console.log(extraIndex);
+  };
+
+  // daySelect.addEventListener("change", (event) => {
+  //     const addedIndex = parseInt(event.target.value);
+  //     console.log(addedIndex);
+  //     updatingExtraIndex(addedIndex);
+  //   })
+
+  daySelect.addEventListener("change", (event) => {
+    extraIndex = parseInt(event.target.value);
+    // console.log(extraIndex);
+    // updatingExtraIndex(extraIndex);
+
+    // To Change the hourly Weather icon when another weekday is selected 👇
+    hourIconArray.forEach((icon) => {
+      const iconIndex = hourIconArray.indexOf(icon);
+      // console.log(iconIndex);
+      const weather_code =
+        hourlyWeatherData.weather_code[iconIndex + extraIndex];
+      // console.log(weather_code);
+
+      switch (true) {
+        // Sunny
+        case weather_code <= 1:
+          icon.setAttribute("src", "./assets/images/icon-sunny.webp");
+          break;
+        // Partly-Cloudy
+        case weather_code == 2:
+          icon.setAttribute("src", "./assets/images/icon-partly-cloudy.webp");
+          break;
+        // Overcast
+        case weather_code == 3:
+          icon.setAttribute("src", "./assets/images/icon-overcast.webp");
+          break;
+        // Fog
+        case weather_code <= 48:
+          icon.setAttribute("src", "./assets/images/icon-fog.webp");
+          break;
+        // Drizzle
+        case weather_code <= 57:
+          icon.setAttribute("src", "./assets/images/icon-drizzle.webp");
+          break;
+        // Rain
+        case weather_code <= 67:
+          icon.setAttribute("src", "./assets/images/icon-rain.webp");
+          break;
+        // Snow
+        case weather_code <= 77:
+          icon.setAttribute("src", "./assets/images/icon-snow.webp");
+          break;
+        // Rain Showers
+        case weather_code <= 82:
+          icon.setAttribute("src", "./assets/images/icon-rain.webp");
+          break;
+        // Snow Showers
+        case weather_code <= 86:
+          icon.setAttribute("src", "./assets/images/icon-snow.webp");
+          break;
+        // Thunderstorm
+        case weather_code <= 99:
+          icon.setAttribute("src", "./assets/images/icon-storm.webp");
+          break;
+
+        // Default(Nothing happens)
+        default:
+          break;
+      }
+    });
+    // To Change the hourly Weather icon when another weekday is selected 👆
+
+    // To Change the hourly Weather temp when another weekday is selected 👇
+    hourTempArray.forEach((temp) => {
+      const tempIndex = hourTempArray.indexOf(temp);
+      // console.log(tempIndex);
+
+      temp.textContent = `${hourlyWeatherData.temperature_2m[tempIndex + extraIndex]}°`;
+    });
+    // To Change the hourly Weather temp when another weekday is selected 👆
+  });
+
+  // To Change the hourly Weather icon 👇
+  hourIconArray.forEach((icon) => {
+    const iconIndex = hourIconArray.indexOf(icon);
+    // console.log(iconIndex);
+    const weather_code = hourlyWeatherData.weather_code[iconIndex + extraIndex];
+    // console.log(weather_code);
+
+    switch (true) {
+      // Sunny
+      case weather_code <= 1:
+        icon.setAttribute("src", "./assets/images/icon-sunny.webp");
+        break;
+      // Partly-Cloudy
+      case weather_code == 2:
+        icon.setAttribute("src", "./assets/images/icon-partly-cloudy.webp");
+        break;
+      // Overcast
+      case weather_code == 3:
+        icon.setAttribute("src", "./assets/images/icon-overcast.webp");
+        break;
+      // Fog
+      case weather_code <= 48:
+        icon.setAttribute("src", "./assets/images/icon-fog.webp");
+        break;
+      // Drizzle
+      case weather_code <= 57:
+        icon.setAttribute("src", "./assets/images/icon-drizzle.webp");
+        break;
+      // Rain
+      case weather_code <= 67:
+        icon.setAttribute("src", "./assets/images/icon-rain.webp");
+        break;
+      // Snow
+      case weather_code <= 77:
+        icon.setAttribute("src", "./assets/images/icon-snow.webp");
+        break;
+      // Rain Showers
+      case weather_code <= 82:
+        icon.setAttribute("src", "./assets/images/icon-rain.webp");
+        break;
+      // Snow Showers
+      case weather_code <= 86:
+        icon.setAttribute("src", "./assets/images/icon-snow.webp");
+        break;
+      // Thunderstorm
+      case weather_code <= 99:
+        icon.setAttribute("src", "./assets/images/icon-storm.webp");
+        break;
+
+      // Default(Nothing happens)
+      default:
+        break;
+    }
+  });
+  // To Change the hourly Weather icon 👆
+
+  // To Change the hourly Weather temperature 👇
+  hourTempArray.forEach((temp) => {
+    const tempIndex = hourTempArray.indexOf(temp);
+    // console.log(tempIndex);
+
+    temp.textContent = `${hourlyWeatherData.temperature_2m[tempIndex + extraIndex]}°`;
+  });
+  // To Change the hourly Weather temperature 👆
+
+  daySelect.selectedIndex = 0;
 };
